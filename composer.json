@@ -1,0 +1,36 @@
+{
+    "name": "otnansirk/laravel-moota",
+    "description": "Laravel Moota is a mutation grapher built using laravel with moota.id api",
+    "keywords": [
+        "otnansirk",
+        "laravel-moota",
+        "Moota Laravel",
+        "payment gateway",
+        "moota payment gateway",
+        "payment"
+    ],
+    "authors": [
+        {
+            "name": "k15",
+            "email": "krisnantobiyuh@gmail.com"
+        }
+    ],
+    "type": "library",
+    "minimum-stability": "dev",
+    "require": {
+        "laravel/framework": "^8.75"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Otnansirk\\Moota\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Otnansirk\\Moota\\MootaCoreServiceProvider"
+            ]
+        }
+    }
+}
