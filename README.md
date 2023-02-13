@@ -1,4 +1,19 @@
-# Laravel Moota
+<p align="center">
+  <a href="https://packagist.org/packages/otnansirk/laravel-moota">
+    <img alt="Laravel Moota" src="" width="100" />
+  </a>
+</p>
+<h1 align="center">
+  Laravel Moota
+</h1>
+
+<p align="center">
+  <a href="https://github.com/otnansirk/laravel-moota/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Laravel Moota is released under the MIT license." />
+  </a>
+</p>
+
+
 Laravel Moota is a mutation grapher built using laravel with moota.id api. This allows you to immediately focus on business flow without the hassle of making manual requests to the moota.id server.
 
 # Installation
