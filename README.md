@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://packagist.org/packages/otnansirk/laravel-moota">
-    <img alt="Laravel Moota" src="" width="100" />
+    <img alt="Laravel Moota" src="https://raw.githubusercontent.com/otnansirk/laravel-moota/master/assets/logo.png" width="500" />
   </a>
 </p>
 <h1 align="center">
