@@ -37,11 +37,10 @@ class MootaPayService
 
         if ($validate->fails()) {
             Log::warning($validate->errors());
-            throw new MootaCore400Exception("Bad Request", 400);
+            throw new MootaCore400Exception($validate);
         }
 
         $path = "/contract";
-        return $orderData->get();
         $res = MootaCore::api($path, 'post', $orderData->payload());
 
         return collect(collect($res->body())->get('data', []));
