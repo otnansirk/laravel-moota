@@ -52,6 +52,7 @@ class MootaAuthService
     /**
      * Register user
      *
+     * @param array $data
      * @return Collection
      */
     public function register(array $data): Collection
@@ -65,9 +66,8 @@ class MootaAuthService
 
         if ($validate->fails()) {
             Log::warning($validate->errors());
-            throw new MootaCore400Exception();
+            throw new MootaCore400Exception($validate);
         }
-
 
         $path = "/auth/register";
         $res  = MootaCore::api($path, 'post', $data);
