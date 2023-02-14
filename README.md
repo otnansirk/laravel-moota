@@ -16,6 +16,44 @@
 
 Laravel Moota is a mutation grapher built using laravel with moota.id api. This allows you to immediately focus on business flow without the hassle of making manual requests to the moota.id server.
 
+
+# Documentation
+- [Documentation](#documentation)
+- [Installation](#installation)
+- [How to Use](#how-to-use)
+  * [Auth](#auth)
+    + [Register User](#register-user)
+    + [Login(Get Token)](#login-get-token-)
+    + [Logout(Destroy Token)](#logout-destroy-token-)
+    + [Profile](#profile)
+  * [Bank Accounts](#bank-accounts)
+    + [Available Bank](#available-bank)
+    + [List Of Bank](#list-of-bank)
+    + [Create Bank](#create-bank)
+    + [Update Bank](#update-bank)
+    + [Delete Bank](#delete-bank)
+    + [E-Wallet Request OTP](#e-wallet-request-otp)
+    + [E-Wallet Verify OTP](#e-wallet-verify-otp)
+  * [Mutations](#mutations)
+    + [Refresh mutation](#refresh-mutation)
+    + [List mutation](#list-mutation)
+    + [Store mutation](#store-mutation)
+    + [Note mutation](#note-mutation)
+    + [Delete mutation](#delete-mutation)
+    + [Tags mutation](#tags-mutation)
+    + [Summary mutation](#summary-mutation)
+    + [Webhook test](#webhook-test)
+  * [Taggings](#taggings)
+    + [Store](#store)
+    + [Update](#update)
+  + [Mootapay](#mootapay)
+  + [Topups](#topups)
+  + [Webhooks](#webhooks)
+  + [Merchant](#merchant)
+- [Contribution](#contribution)
+
+
+
 # Installation
 
 #### 1. You can install the package via composer.
@@ -364,7 +402,7 @@ Params : <br>
   MootaMutation::webhook("1234");
 ```
 
-### Taggings
+## Taggings
 ### Store
 Store tagging
 
@@ -390,16 +428,16 @@ Params : <br>
   MootaTag::update("Bayar Pulsa", "1234");
 ```
 
-### Mootapay
+## Mootapay
  Upcoming
 
-### Topups
+## Topups
  Upcoming
 
-### Webhooks
+## Webhooks
  Upcoming
 
-### Merchant
+## Merchant
  Upcoming
 
 
