@@ -365,7 +365,30 @@ Params : <br>
 ```
 
 ### Taggings
- Upcoming
+### Store
+Store tagging
+
+Method : `MootaTag::store($name)` <br/>
+Params : <br>
+  - **Required** : $name
+  - **Optional** : -
+```
+<?php
+
+  MootaTag::store("Bayar Token");
+```
+### Update
+Store tagging
+
+Method : `MootaTag::update($name, $id)` <br/>
+Params : <br>
+  - **Required** : $name, $id
+  - **Optional** : -
+```
+<?php
+
+  MootaTag::update("Bayar Pulsa", "1234");
+```
 
 ### Mootapay
  Upcoming
