@@ -378,7 +378,7 @@ Params : <br>
   MootaTag::store("Bayar Token");
 ```
 ### Update
-Store tagging
+Update tagging
 
 Method : `MootaTag::update($name, $id)` <br/>
 Params : <br>
