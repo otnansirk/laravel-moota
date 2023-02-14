@@ -144,7 +144,7 @@ class MootaBankService
      * @param string $id
      * @return Collection
      */
-    public function verificationOtp(int $otpCode, string $id): Collection
+    public function verifyOtp(int $otpCode, string $id): Collection
     {
         $path = '/bank/verification/otp/'.$id;
         $res  = MootaCore::api($path, 'post', ['otp_code' => $otpCode]);
