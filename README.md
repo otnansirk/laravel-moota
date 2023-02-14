@@ -37,49 +37,170 @@ php artisan vendor:publish --provider="Otnansirk\Moota\MootaCoreServiceProvider"
 # How to Use
 All config store to `/configs/moota.php`. Customize evrything you need.
 
-## Functions
+## Auth
 
-### Register User | `MootaAuth::register($data)`
+### Register User
+Method : `MootaAuth::register($data)` <br>
+Params :
+ - **Required** : $data
+ - **Optional** : -
 ```
 <?php
 
-    $data = [
-        "name" => "moota",
-        "email" => "moota@email.co",
-        "password" => "your password",
-        "password_confirmation" => "your password confirmation"
-    ];
+  $data = [
+    "name" => "moota",
+    "email" => "moota@email.co",
+    "password" => "your password",
+    "password_confirmation" => "your password confirmation"
+  ];
 
     MootaAuth::register($data);
 ```
 
-### Login(Get Token) | `MootaAuth::login($email, $password, $scopes)`
+### Login(Get Token)
+Method : `MootaAuth::login($email, $password, $scopes)`<br>
+Params :
+ - **Required** : $email, $password
+ - **Optional** : $scopes
+ - **Default**  :
+    - $scopes = ["api"]
 ```
 <?php
 
-    MootaAuth::login('moota_email', 'moota_password', ["api"]);
+  MootaAuth::login('moota_email', 'moota_password', ["api"]);
 ```
 
 Scopes = `api` for all access to api v2.
 
-### Logout(Destroy Token) | `MootaAuth::logout()`
+### Logout(Destroy Token)
+Method : `MootaAuth::logout()`<br>
+ - **Required** : -
+ - **Optional** : -
 ```
 <?php
 
-    MootaAuth::logout();
+  MootaAuth::logout();
 ```
 
-### Profile | `MootaAuth::profile()`
+### Profile
+Method : `MootaAuth::profile()`<br>
+ - **Required** : -
+ - **Optional** : -
 ```
 <?php
 
-    MootaAuth::profile();
+  MootaAuth::profile();
 ```
 
-Scopes = `api` for all access to api v2.
+## Bank Accounts
 
-### Bank Accounts
- Upcoming
+### List Of Available Bank Integration
+Method : `MootaBank::available($page, $limit)` <br/>
+Params : <br>
+  - **Optional** : $page, $limit
+  - **Required** : -
+ - **Default**  :
+    - $page = 1
+    - $limit = 10
+```
+<?php
+
+  MootaBank::available(1, 10);
+```
+
+### List Of Bank
+Method : `MootaBank::list($page, $limit)` <br/>
+Params : <br>
+  - **Optional** : $page, $limit
+  - **Required** : -
+ - **Default**  :
+    - $page = 1
+    - $limit = 10
+```
+<?php
+
+  MootaBank::list(1, 10);
+```
+
+### Create Bank
+Method : `MootaBank::store($data)` <br/>
+Params : <br>
+  - **Optional** : $data
+  - **Required** : -
+```
+<?php
+
+  $data = [
+    "corporate_id" => "",
+    "bank_type"    => "bca",
+    "username"     => "user_ibanking",
+    "password"     => "password_ibanking",
+    "name_holder"  => "Jhone Dhoe",
+    "is_active"    => true,
+    "account_number"=> 16899030
+  ];
+
+  MootaBank::store($data);
+```
+
+### Update Bank
+Method : `MootaBank::update($data, $id)` <br/>
+Params : <br>
+  - **Optional** : $data, $id
+  - **Required** : -
+```
+<?php
+
+  $id = "123";
+  $data = [
+    "corporate_id" => "",
+    "bank_type"    => "bca",
+    "username"     => "user_ibanking",
+    "password"     => "password_ibanking",
+    "name_holder"  => "Jhone Dhoe",
+    "is_active"    => true,
+    "account_number"=> 16899030
+  ];
+
+  MootaBank::update($data, $id);
+```
+
+### Delete Bank
+Method : `MootaBank::destroy($id)` <br/>
+Params : <br>
+  - **Optional** : $id
+  - **Required** : -
+```
+<?php
+
+  $id = "123";
+  MootaBank::update($id);
+```
+
+### E-Wallet Request OTP
+Method : `MootaBank::requestOtp($id)` <br/>
+Params : <br>
+  - **Optional** : $id
+  - **Required** : -
+```
+<?php
+
+  $id = "123";
+  MootaBank::requestOtp($id);
+```
+
+### E-Wallet Verify OTP
+Method : `MootaBank::verifyOtp($otpCode, $id)` <br/>
+Params : <br>
+  - **Optional** : $otpCode, $id
+  - **Required** : -
+```
+<?php
+
+  $id = "123";
+  MootaBank::verifyOtp("1234", $id);
+```
+
 
 ### Mutations
  Upcoming
