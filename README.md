@@ -40,6 +40,8 @@ All config store to `/configs/moota.php`. Customize evrything you need.
 ## Auth
 
 ### Register User
+Register user
+
 Method : `MootaAuth::register($data)` <br>
 Params :
  - **Required** : $data
@@ -58,6 +60,8 @@ Params :
 ```
 
 ### Login(Get Token)
+Generate access token
+
 Method : `MootaAuth::login($email, $password, $scopes)`<br>
 Params :
  - **Required** : $email, $password
@@ -73,6 +77,8 @@ Params :
 Scopes = `api` for all access to api v2.
 
 ### Logout(Destroy Token)
+Destroy access token
+
 Method : `MootaAuth::logout()`<br>
  - **Required** : -
  - **Optional** : -
@@ -83,6 +89,8 @@ Method : `MootaAuth::logout()`<br>
 ```
 
 ### Profile
+Get user profile
+
 Method : `MootaAuth::profile()`<br>
  - **Required** : -
  - **Optional** : -
@@ -94,11 +102,13 @@ Method : `MootaAuth::profile()`<br>
 
 ## Bank Accounts
 
-### List Of Available Bank Integration
+### Available Bank
+Get list available of bank Integration
+
 Method : `MootaBank::available($page, $limit)` <br/>
 Params : <br>
-  - **Optional** : $page, $limit
   - **Required** : -
+  - **Optional** : $page, $limit
  - **Default**  :
     - $page = 1
     - $limit = 10
@@ -109,10 +119,12 @@ Params : <br>
 ```
 
 ### List Of Bank
+Get list of your bank accounts that you have registered at moota.
+
 Method : `MootaBank::list($page, $limit)` <br/>
 Params : <br>
-  - **Optional** : $page, $limit
   - **Required** : -
+  - **Optional** : $page, $limit
  - **Default**  :
     - $page = 1
     - $limit = 10
@@ -123,10 +135,12 @@ Params : <br>
 ```
 
 ### Create Bank
+Stor bank account
+
 Method : `MootaBank::store($data)` <br/>
 Params : <br>
-  - **Optional** : $data
-  - **Required** : -
+  - **Required** : $data
+  - **Optional** : -
 ```
 <?php
 
@@ -144,10 +158,12 @@ Params : <br>
 ```
 
 ### Update Bank
+Update bank account
+
 Method : `MootaBank::update($data, $id)` <br/>
 Params : <br>
-  - **Optional** : $data, $id
-  - **Required** : -
+  - **Required** : $data, $id
+  - **Optional** : -
 ```
 <?php
 
@@ -166,10 +182,12 @@ Params : <br>
 ```
 
 ### Delete Bank
+Destroy bank account
+
 Method : `MootaBank::destroy($id)` <br/>
 Params : <br>
-  - **Optional** : $id
-  - **Required** : -
+  - **Required** : $id
+  - **Optional** : -
 ```
 <?php
 
@@ -178,10 +196,14 @@ Params : <br>
 ```
 
 ### E-Wallet Request OTP
+This is for activating your Gojek and Ovo E-wallet accounts,
+after you make a call request this endpoint, there will be an OTP that you will receive via your mobile number,
+and make a call MootaBank::verifyOtp() after getting OTP Code
+
 Method : `MootaBank::requestOtp($id)` <br/>
 Params : <br>
-  - **Optional** : $id
-  - **Required** : -
+  - **Required** : $id
+  - **Optional** : -
 ```
 <?php
 
@@ -190,10 +212,13 @@ Params : <br>
 ```
 
 ### E-Wallet Verify OTP
+This is for activating your Gojek and Ovo E-wallet accounts.
+after you get the OTP code, verify the code through this endpoint
+
 Method : `MootaBank::verifyOtp($otpCode, $id)` <br/>
 Params : <br>
-  - **Optional** : $otpCode, $id
-  - **Required** : -
+  - **Required** : $otpCode, $id
+  - **Optional** : -
 ```
 <?php
 
@@ -202,8 +227,142 @@ Params : <br>
 ```
 
 
-### Mutations
- Upcoming
+## Mutations
+### Refresh mutation
+This is for getting the latest updates before the bank interval runs.
+
+Method : `MootaMutation::refresh()` <br/>
+Params : <br>
+  - **Required** : -
+  - **Optional** : -
+```
+<?php
+
+  MootaMutation::refresh("1234", $id);
+```
+### List mutation
+Get list of mutations
+
+Method : `MootaMutation::list($params)` <br/>
+Params : <br>
+  - **Required** : -
+  - **Optional** : $params
+```
+<?php
+
+  $params = [
+      "type"       => "credit",
+      "bank_id"    => "1234",
+      "start_date" => "1997-01-10",
+      "end_date"   => "1997-01-10",
+      "tag"        => "muta",
+      "page"       => 1,
+      "par_page"   => 10
+  ];
+
+  MootaMutation::list($params);
+```
+### Store mutation
+Create dummy mutation
+
+Method : `MootaMutation::store($data, $bankId)` <br/>
+Params : <br>
+  - **Optional** : -
+  - **Required** : $data, $bankId
+```
+<?php
+
+  $data = [
+      "date"   => "1997-01-10",
+      "note"   => "muta",
+      "amount" => 1,
+      "type"   => 10
+  ];
+
+  MootaMutation::store($data, "123");
+```
+### Note mutation
+Update note of mutation
+
+Method : `MootaMutation::note($nota, $mutationId)` <br/>
+Params : <br>
+  - **Required** : $nota, $mutationId
+  - **Optional** : -
+```
+<?php
+
+  $note = "Note 1";
+  MootaMutation::note($data, "123");
+```
+### Delete mutation
+Delete mutation can be multiple
+
+Method : `MootaMutation::destroy($mutationIds)` <br/>
+Params : <br>
+  - **Required** : $mutationIds
+  - **Optional** : -
+```
+<?php
+
+  MootaMutation::destroy("mutation_id");
+```
+You can destroy multiple mutation like this
+```
+<?php
+
+  $mutationIds = ["mutation_id", "mutation_id"];
+  MootaMutation::destroy($mutationIds);
+```
+### Tags mutation
+Add tags to mutation
+
+Method : `MootaMutation::tags($tags, $mutationId)` <br/>
+Params : <br>
+  - **Required** : $tags, $mutationId
+  - **Optional** : -
+```
+<?php
+
+  MootaMutation::tags("tags_q", "123");
+```
+You can add tags multiple to mutation like this
+```
+<?php
+
+  $tags = ["tags_1", "tags_2"];
+  MootaMutation::MootaMutation($tags, $mutationId);
+```
+### Summary mutation
+To get a summary of mutations in your account
+
+Method : `MootaMutation::summary($params)` <br/>
+Params : <br>
+  - **Required** : -
+  - **Optional** : $params
+```
+<?php
+
+  $params = [
+    "bank_id"    => "123",
+    "type"       => "credit",
+    "start_date" => "1997-10-10",
+    "end_date"   => "1997-10-10",
+  ];
+
+  MootaMutation::summary($params);
+```
+### Webhook test
+This for testing push data to webhook
+
+Method : `MootaMutation::webhook($mutationId)` <br/>
+Params : <br>
+  - **Required** : $mutationId
+  - **Optional** : -
+```
+<?php
+
+  MootaMutation::webhook("1234");
+```
 
 ### Taggings
  Upcoming
