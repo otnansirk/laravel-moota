@@ -40,7 +40,7 @@ class MootaBankService
     public function list(int $page = 1, int $limit = 10): Collection
     {
         $path = '/bank';
-        $res  = MootaCore::api($path, 'post', [
+        $res  = MootaCore::api($path, 'get', [
             'page' => $page,
             'per_page' => $limit,
         ]);
