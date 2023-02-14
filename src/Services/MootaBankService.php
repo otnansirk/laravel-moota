@@ -120,9 +120,9 @@ class MootaBankService
     /**
      * Request OTP
      *
-     * This endpoint is for activating your Gojek and Ovo E-wallet accounts,
+     * This is for activating your Gojek and Ovo E-wallet accounts,
      * after you make a call request this endpoint, there will be an OTP that you will receive via your mobile number,
-     * and make a call request endpoint api/v2/bank/verification/otp/bank_id after getting OTP Code :
+     * and make a call MootaBank::verifyOtp() after getting OTP Code :
      *
      * @param string $id
      * @return Collection
@@ -137,7 +137,7 @@ class MootaBankService
     /**
      * Verification OTP
      *
-     * This endpoint is for activating your Gojek and Ovo E-wallet accounts.
+     * This is for activating your Gojek and Ovo E-wallet accounts.
      * after you get the OTP code, verify the code through this endpoint
      *
      * @param int $otpCode

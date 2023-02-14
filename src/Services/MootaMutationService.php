@@ -12,7 +12,7 @@ class MootaMutationService
 {
 
     /**
-     * This endpoint is for getting the latest updates before the bank interval runs.
+     * This is for getting the latest updates before the bank interval runs.
      *
      * @param string $bankId
      * @return Collection
@@ -30,7 +30,7 @@ class MootaMutationService
      * @param array $params
      * @return Collection
      */
-    public function list(array $params): Collection
+    public function list(array $params = []): Collection
     {
 
         $params['bank'] = collect($params)->get('bank_id', '');
@@ -109,7 +109,7 @@ class MootaMutationService
     }
 
     /**
-     * Delete mutation can be multiple
+     * Add tags to mutation
      *
      * @param mixed $mutationIds
      * @return Collection
@@ -128,7 +128,7 @@ class MootaMutationService
      * @param array $params
      * @return Collection
      */
-    public function summary(array $params): Collection
+    public function summary(array $params = []): Collection
     {
 
         $validate = Validator::make($params, [
@@ -149,7 +149,7 @@ class MootaMutationService
     }
 
     /**
-     * This for testing push data webhook
+     * This for testing push data to webhook
      *
      * @param string $mutationId
      * @return Collection
