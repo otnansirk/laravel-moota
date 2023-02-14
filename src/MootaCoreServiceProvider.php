@@ -7,6 +7,7 @@ use Otnansirk\Moota\Services\MootaPayService;
 use Otnansirk\Moota\Services\MootaAuthService;
 use Otnansirk\Moota\Services\MootaBankService;
 use Otnansirk\Moota\Services\MootaCoreService;
+use Otnansirk\Moota\Services\MootaTagService;
 use Otnansirk\Moota\Services\MootaMutationService;
 
 class MootaCoreServiceProvider extends ServiceProvider
@@ -23,6 +24,7 @@ class MootaCoreServiceProvider extends ServiceProvider
         $this->app->bind('MootaAuth', MootaAuthService::class);
         $this->app->bind('MootaBank', MootaBankService::class);
         $this->app->bind('MootaMutation', MootaMutationService::class);
+        $this->app->bind('MootaTag', MootaTagService::class);
     }
 
     /**
