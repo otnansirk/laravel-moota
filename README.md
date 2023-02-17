@@ -476,7 +476,7 @@ Params : <br>
     "unique_code" => 0
   ];
 
-  MootaPay::contract($data);
+  MootaPay::contract($data)->save();
  ```
 
 ### Transaction List
