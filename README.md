@@ -429,7 +429,140 @@ Params : <br>
 ```
 
 ## Mootapay
- Upcoming
+
+### Contract
+Create contract
+
+Method : `MootaPay::contract($data)->save()` <br/>
+Params : <br>
+  - **Required** : $data
+  - **Optional** : -
+ ```
+ <?php
+
+  $data = [
+    "invoice_number" => "inv-fattah-17"
+    "amount" => 20000
+    "payment_method_id" => "4D0LWdYkevQ"
+    "type" => "payment"
+    "callback_url" => "https://app.moota.co/debug/webhook"
+    "expired_date" => "2022-08-02 20:00:00"
+    "description" => "penjualan baju polos"
+    "increase_total_from_unique_code" => 1
+    "customer" => [
+      "name" => "Terry Herman"
+      "email" => "jedidiah35@example.com"
+      "phone" => "622513121190"
+    ]
+    "items" => [
+      0 => array:5 [
+        "name" => "t-shirt white"
+        "qty" => 10
+        "price" => 10000
+        "sku" => "SKU-245-8411"
+        "image_url" => "https://via.placeholder.com/150"
+      ]
+      1 => array:5 [
+        "name" => "t-shirt white"
+        "qty" => 10
+        "price" => 10000
+        "sku" => "SKU-188-0680"
+        "image_url" => "https://via.placeholder.com/150"
+      ]
+    ]
+    "with_unique_code" => 1
+    "start_unique_code" => 10
+    "end_unique_code" => 20
+    "unique_code" => 0
+  ];
+
+  MootaPay::contract($data);
+ ```
+
+### Transaction List
+List of payment transaction
+
+Method : `MootaPay::list()` <br/>
+Params : <br>
+  - **Required** : -
+  - **Optional** : -
+ ```
+ <?php
+
+  MootaPay::list();
+
+  OR
+
+  MootaPay::contract()->list();
+
+ ```
+
+### Payment Method
+Available payment method
+
+Method : `MootaPay::method()` <br/>
+Params : <br>
+  - **Required** : -
+  - **Optional** : -
+ ```
+ <?php
+
+  MootaPay::method();
+
+ ```
+### Cancelled Transaction
+Can cancel transaction with this method
+
+Method : `MootaPay::canceled($trxId)` <br/>
+Params : <br>
+  - **Required** : -
+  - **Optional** : -
+ ```
+ <?php
+
+  MootaPay::canceled("TRX-1234");
+
+ ```
+### Plugin Token
+
+Method : `MootaPay::pluginToken()` <br/>
+Params : <br>
+  - **Required** : -
+  - **Optional** : -
+ ```
+ <?php
+
+  MootaPay::pluginToken()
+
+ ```
+
+ ### Moota Callback
+You will receive this data from the webhook url that you have registered <br>
+If you leave data blank, this method will generate your callback data from faker api.
+
+Method : `MootaPay::callback($data)` <br/>
+Params : <br>
+  - **Required** : -
+  - **Optional** : $data
+ ```
+ <?php
+
+  $data = [
+    "total" => "102351",
+    "amount" => "69015",
+    "status" => "success",
+    "trx_id" => "trx-c91b6dd3-1bbc-5c3e-bf26-84d925a03a43",
+    "created_at" => "2022-02-04 15:08:23",
+    "invoice_number" => "INV-923-737-2218",
+    "payment_at" => "2022-02-04 20:08:23",
+    "unique_code" => "0",
+    "expired_date" => "2022-02-05 15:08:23",
+    "payment_method_id" => "pn3ykVZkNRD"
+  ];
+
+  MootaPay::callback($data)
+
+ ```
 
 ## Topups
  Upcoming
