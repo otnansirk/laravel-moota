@@ -565,7 +565,55 @@ Params : <br>
  ```
 
 ## Topups
- Upcoming
+
+  ### Topup to
+  List bank for transfer to topup point
+
+  ```
+  MootaTopup::topup()->to();
+  ```
+  ### Topup
+  Topup point to moota
+  ```
+  $data = [
+    'amount' => 50000,
+    'payment_method' => 'bcaGiro' // This value is bank_type from response MootaTopup::topup()->to()
+  ];
+
+  MootaTopup::topup($data)->save();
+  ```
+  ### History
+  History of topup
+  ```
+  MootaTopup::history();
+  ```
+
+  ### Point
+  List of available point
+  ```
+  MootaTopup::point()->get()
+  ```
+
+  ### Point used
+  View the history of the point has been used
+  ```
+    MootaTopup::point()->used();
+  ```
+  Or you can filter like this
+  ```
+  $filter = [
+    "start_date" => 'date_format:Y-m-d',
+    'end_date'   => 'date_format:Y-m-d',
+    'page'       => 1,
+    'per_page'   => 10
+  ];
+
+  MootaTopup::point()->used($filters);
+  ```
+  ### Redeem code
+  ```
+  MootaTopup::redeem('1234');
+  ```
 
 ## Webhooks
  Upcoming
