@@ -758,6 +758,9 @@ Params : <br>
     MootaMerchant::legal($data, $merchantId)->save();
   ```
 
+# Credit
+- <a href='http://ecotrust-canada.github.io/markdown-toc/'>Moota</a>
+- <a href='https://github.com/otnansirk/laravel-moota/graphs/contributors'>contributors</a>
 
 # Contribution
 This project is far from perfect. many Moota APIs that have not been implemented. I would be very happy if any of you could contribute for this project.
