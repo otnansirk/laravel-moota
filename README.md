@@ -651,7 +651,89 @@ Params : <br>
 
 
 ## Merchant
- Upcoming
+  ### List
+  List of merchant
+  ```
+    MootaMerchant::list();
+  ```
+
+  ### Store
+  Create merchant data
+  ```
+    $data = [
+      'logo' => 'image.png',
+      'merchant_name' => '',
+      'merchant_email' => '',
+      'merchant_phone' => '',
+      'address' => '',
+      'business_type' => '',
+      'website' => ''
+    ];
+
+    MootaMerchant::store($data);
+  ```
+  ### Store Legal
+  create, add, or upload merchant legality files
+  ```
+    $data = [
+      'type' => 'personal',
+      'ktp_director_number' => '',
+      'owner_ktp_file' => '',
+      'owner_ktp_selfie_file' => '',
+      'company_name' => '',
+      'company_phone' => '',
+      'company_email' => '',
+      'siup_number' => '',
+      'owner_npwp_file' => '',
+      'company_npwp_file' => '',
+      'company_siup_file' => '',
+      'company_certificate_file' => '',
+      'bank_account_id' => ''
+    ];
+
+    MootaMerchant::legal($data)->save();
+  ```
+
+  ### Update
+  Update merchant data
+  ```
+    $data = [
+      'logo' => 'image.png',
+      'merchant_name' => '',
+      'merchant_email' => '',
+      'merchant_phone' => '',
+      'address' => '',
+      'business_type' => '',
+      'website' => ''
+    ];
+
+    $merchantId = 'gQnp0VqzNrO';
+
+    MootaMerchant::update($data, $merchantId);
+  ```
+  ### Update Legal
+  Update merchant legality files
+  ```
+    $data = [
+      'type' => 'personal',
+      'ktp_director_number' => '',
+      'owner_ktp_file' => '',
+      'owner_ktp_selfie_file' => '',
+      'company_name' => '',
+      'company_phone' => '',
+      'company_email' => '',
+      'siup_number' => '',
+      'owner_npwp_file' => '',
+      'company_npwp_file' => '',
+      'company_siup_file' => '',
+      'company_certificate_file' => '',
+      'bank_account_id' => ''
+    ];
+
+    $merchantId = 'gQnp0VqzNrO';
+
+    MootaMerchant::legal($data, $merchantId)->save();
+  ```
 
 
 # Contribution
