@@ -11,6 +11,7 @@ use Otnansirk\Moota\Services\MootaCoreService;
 use Otnansirk\Moota\Services\MootaTopupService;
 use Otnansirk\Moota\Services\MootaWebhookService;
 use Otnansirk\Moota\Services\MootaMutationService;
+use Otnansirk\Moota\Services\MootaMerchantkService;
 
 class MootaCoreServiceProvider extends ServiceProvider
 {
@@ -29,6 +30,7 @@ class MootaCoreServiceProvider extends ServiceProvider
         $this->app->bind('MootaTag', MootaTagService::class);
         $this->app->bind('MootaTopup', MootaTopupService::class);
         $this->app->bind('MootaWebhook', MootaWebhookService::class);
+        $this->app->bind('MootaMerchant', MootaMerchantkService::class);
     }
 
     /**
