@@ -1,4 +1,5 @@
 <?php
+
 namespace Otnansirk\Moota\Services;
 
 use Illuminate\Support\Collection;

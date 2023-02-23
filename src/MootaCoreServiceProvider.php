@@ -4,10 +4,11 @@ namespace Otnansirk\Moota;
 
 use Illuminate\Support\ServiceProvider;
 use Otnansirk\Moota\Services\MootaPayService;
+use Otnansirk\Moota\Services\MootaTagService;
 use Otnansirk\Moota\Services\MootaAuthService;
 use Otnansirk\Moota\Services\MootaBankService;
 use Otnansirk\Moota\Services\MootaCoreService;
-use Otnansirk\Moota\Services\MootaTagService;
+use Otnansirk\Moota\Services\MootaTopupService;
 use Otnansirk\Moota\Services\MootaMutationService;
 
 class MootaCoreServiceProvider extends ServiceProvider
@@ -25,6 +26,7 @@ class MootaCoreServiceProvider extends ServiceProvider
         $this->app->bind('MootaBank', MootaBankService::class);
         $this->app->bind('MootaMutation', MootaMutationService::class);
         $this->app->bind('MootaTag', MootaTagService::class);
+        $this->app->bind('MootaTopup', MootaTopupService::class);
     }
 
     /**
