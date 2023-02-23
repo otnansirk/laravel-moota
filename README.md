@@ -616,7 +616,39 @@ Params : <br>
   ```
 
 ## Webhooks
- Upcoming
+  ### List
+  Get list of webhook
+  ```
+  MootaWebhook::list();
+  ```
+  Or you can use filter like this
+  ```
+  $filter = [
+    'url' => 'your_url'
+  ];
+
+  MootaWebhook::list($filter);
+  ```
+  ### Store
+  Create/store list of webhook
+  ```
+  $data = [
+    "url"               => "https =>//app.moota.co/endpoint/webhooks",
+    "bank_account_id"   => "hq10916...",
+    "kinds"             => "credit",
+    "secret_token"      => "generate_your_hash_secret_token",
+    "start_unique_code" => 1,
+    "end_unique_code"   => 999
+  ];
+
+  MootaWebhook::store($data);
+  ```
+  ### Destroy
+  Delete list of webhook
+  ```
+  MootaWebhook::destroy('webhook_id');
+  ```
+
 
 ## Merchant
  Upcoming
