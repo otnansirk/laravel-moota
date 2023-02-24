@@ -20,9 +20,6 @@ Laravel Moota is a mutation grapher built using laravel with moota.id api. This 
 # Documentation
 - [Documentation](#documentation)
 - [Installation](#installation)
-      - [1. You can install the package via composer.](#1-you-can-install-the-package-via-composer)
-      - [2. Optional : The service provider will automatically get registered. Or you my manually add the service provider in your `configs/app.php` file.](#2-optional---the-service-provider-will-automatically-get-registered-or-you-my-manually-add-the-service-provider-in-your--configs-appphp--file)
-      - [3. You should publish the `config/moota.php` config file with this php artisan command.](#3-you-should-publish-the--config-mootaphp--config-file-with-this-php-artisan-command)
 - [How to Use](#how-to-use)
   * [Auth](#auth)
     + [Register User](#register-user)
